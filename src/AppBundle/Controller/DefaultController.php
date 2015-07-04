@@ -6,6 +6,7 @@ use AppBundle\Entity\Admin;
 use AppBundle\Entity\Customer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -38,16 +39,18 @@ class DefaultController extends Controller
         }
 
         $users = $em->getRepository('AppBundle:User')->findAll();
+        $str = '';
         foreach ($users as $user) {
             if ($user instanceof Admin) {
-                echo "<br>Admin (" . $user->getEmail() . "): " . $user->getNickName();
+                $str .= "<br>Admin (" . $user->getEmail() . "): " . $user->getNickName();
             }
             if ($user instanceof Customer) {
-                echo "<br>Customer (" . $user->getEmail() . "): " . $user->getFirstName() . ' ' . $user->getLastName();
+                $str .= "<br>Customer (" . $user->getEmail() . "): " . $user->getFirstName() . ' ' . $user->getLastName();
             }
         }
 
-
-        //return $this->render('default/index.html.twig');
+        return new Response(
+            '<html><body'.$str.'</body></html>'
+        );
     }
 }
