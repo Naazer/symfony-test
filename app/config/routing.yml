@@ -1,3 +1,48 @@
+app_role_api:
+    resource: "@AppBundle/Controller/RoleRESTController.php"
+    type:   rest
+    prefix:   /api
+
+app_product_image_api:
+    resource: "@AppBundle/Controller/ProductImageRESTController.php"
+    type:   rest
+    prefix:   /api
+
+app_product_api:
+    resource: "@AppBundle/Controller/ProductRESTController.php"
+    type:   rest
+    prefix:   /api
+
+app_payment_api:
+    resource: "@AppBundle/Controller/PaymentRESTController.php"
+    type:   rest
+    prefix:   /api
+
+app_order_product_api:
+    resource: "@AppBundle/Controller/OrderProductRESTController.php"
+    type:   rest
+    prefix:   /api
+
+app_order_api:
+    resource: "@AppBundle/Controller/OrderRESTController.php"
+    type:   rest
+    prefix:   /api
+
+app_customer_api:
+    resource: "@AppBundle/Controller/CustomerRESTController.php"
+    type:   rest
+    prefix:   /api
+
+app_admin_api:
+    resource: "@AppBundle/Controller/AdminRESTController.php"
+    type:   rest
+    prefix:   /api
+
+app_user_api:
+    resource: "@AppBundle/Controller/UserRESTController.php"
+    type:   rest
+    prefix:   /api
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
